@@ -1,0 +1,26 @@
+# QScms 代码仓库忽略项
+# 运行期生成物与用户数据
+/static_site/
+/upload/
+/backups/
+# 站点配置、授权、日志（每套部署各自的私有数据）
+/control/data/*
+# 唯一例外：功能权限模板，随发行包发布（不含任何站点私有信息）
+!/control/data/permission.php
+# 运行期自动生成的站点产物
+/rss.xml
+/sitemap.xml
+# 个人笔记与助手规则
+/我和豆包的留言板.txt
+/.clinerules
+# 杂项
+*.log
+# 临时目录
+/tv/
+
+# 旧静态主题改名残留（已并入 files/theme）
+files/static_theme1111/
+# 安装锁（安装产物，不入库；缺锁才会跳安装向导）
+/install/install.lock
+# 发行包输出
+/dist/

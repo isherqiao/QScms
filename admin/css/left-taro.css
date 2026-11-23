@@ -1,0 +1,1605 @@
+//name:侧栏布局-香芋紫
+//design:isher
+//date:20261031
+
+/*
+==%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*=
+==%%%%%#*+++++++*#%%%%%#*++++++++++*%##+++%%#*++++++++++#%%*=
+==%%%#+==+**##*+==+%%%*==+*********#%##+++%*==**####****#%%*=
+==%%#===#%%%%%%%#===%%===%%%%%%%%%%%%%#%%%#===%%%%%%%%%%%%%*=
+==%%===#%%%%%%%%%*==*%+==*######%%%%%%#===#===*#%%%%%%%%%%%*=
+==%%===%%%%%%%%%%#==+%#+==========+#%%#===##+==========+%%%*=
+==%%===#%%%%%%%%%#==*%%%%%######*===*%#***%%%%%######*===#%*=
+==%%#==+%%%%%%%%#+==#%%%%%%%%%%%%#==+%#***%%%%%%%%%%%%*==*%*=
+==%%%*===*#%%%#*==+##%%##########+==#%#***%%######%%%#===%%*=
+==%%%%%*+============##===========+*%%#***%*===========+#%%*=
+==%%%%%%%##**********%%***********#%%%#===%#***********#%%%*=
+==%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*=
+*/
+
+* {
+  font-family: "Microsoft YaHei",Arial;
+  font-size:18px;
+}
+.ql-editor p{text-indent: 2em;
+  margin-bottom: 20px !important;;
+  line-height:30px;
+}
+html {
+    overflow-y: scroll; /* 始终显示垂直滚动条 */
+}
+#menu a{
+color:#e8e0f7;
+}
+.logo {
+    margin-right: 12px;
+    width: auto;
+    max-height: 40px;
+    position: relative;
+    float: left;
+ }   
+#menu_title a {
+    color: #e8e0f7;
+Font-size:20px;
+}
+
+#menu_title_logout a {
+      color: #e8e0f7;
+    Font-size: 20px;
+  }
+  
+html, body {
+  padding: 0;
+  margin: 0;
+  background: #7d6ba8;
+}
+body {
+        position: relative;
+        overflow: hidden;
+}
+    
+body:before {
+  content: "";
+    position: absolute;
+    top: 50;
+    left: -80px; /* 调整折角的位置 */
+    border-width: 50px 0 0 50px; /* 调整边框样式 */
+    border-style: solid;
+    border-color: #f4f0fb;
+    background-color: #F3F3F3
+    width: 50px;
+    height: 50px;
+    transform: rotate(-45deg); /* 将旋转角度改为-45度 */
+    transform-origin: top left; /* 将旋转原点设置为左上角 */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.form_user {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-group label {
+    width: 100px;
+    margin: 0;
+}
+
+form .button {
+    padding: 6px 20px;
+}
+
+    
+a {
+  text-decoration: none;
+  color: #000000;
+  outline: none;
+}
+
+a:hover {
+  color: #7d6ba8;
+  text-decoration: none;
+}
+
+form {
+  padding: 0;
+  margin: 0;
+}
+
+#editor, #summaryQuill {
+height:400px;
+}
+/*小说编辑*/
+.Post-div {
+   display: flex;
+    /*justify-content: flex-end;*/ /* 移除或者注释掉这行 */
+    justify-content: space-between; /* 或者替换为 space-between */
+    flex-direction: row;
+}
+
+.Post-div-right{
+padding:0 20px 0 20px;
+margin: 0 20px 0 20px;
+border: solid 1px #ccc;
+width: 220px;
+max-width: 220px;
+min-width: 220px;
+}
+
+.Post-div-left{
+ height: 100%;
+flex: 1 1 auto;
+margin-right: auto; /* 将左侧div推到最左侧 */
+}
+
+#contentbox {
+width:100%;
+height:400px;
+}
+/*小说编辑*/
+
+  .table {
+        display: table;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table-row {
+        display: table-row;
+    }
+
+    .table-cell {
+        display: table-cell;
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    .header .table-cell {
+        font-weight: bold;
+        background-color: #f2f2f2;
+    }
+    
+
+.linkdiv {
+  width: 100%;
+  float: left;
+  margin: 5px;
+}
+
+.linkdiv2 {
+  width: 100%;
+  float: left;
+  margin: 5px;
+}
+
+
+#op1, #date, .edit_textarea, .edit_textbox, .select-1, .select-2, input, select, .direction, .small_form .input, .textbox {
+    border: solid 1px #7d6ba8;
+    background-color: #F3F3F3;
+    border-radius: 3px;
+}
+
+.small_form .input {
+  width: 240px;
+}
+    
+#liuyan .del {
+  float: right;
+}
+
+#fenye {
+  width: 100%;
+  margin: auto;
+  display: block;
+  float: left;
+}
+
+#fenye .active {
+  background-color: #e8e0f7;
+  color:#7d6ba8;
+}
+
+#fenye h3 {
+  line-height: 20px;
+  font-size: 16px;
+}
+
+#fenye ta {
+  font-size: 16px;
+  display: none;
+  clear: both;
+   padding: 20px 10px 10px 10px;
+  border-top-width: medium;
+  border-top-style: solid;
+  border-top-color: #e8e0f7;
+}
+
+.st-w {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.st-w select,input {
+  float: initial;
+}
+
+.st-w-l {
+width:100%;
+  float: left;
+}
+
+.st-w-r {
+  float: left;
+/*width:40%;*/
+}
+
+.linkdiv {
+  width: 100%;
+  float: left;
+  margin: 5px;
+}
+
+  #footer {
+  padding: 20px;
+  }
+
+  .search-container {
+    display: flex;
+    justify-content: center;  /* 将内容居中 */
+    align-items: center;      /* 垂直方向居中 */
+    margin: 20px;         /* 根据需要调整间距 */
+}
+
+.search-container input[type="text"],
+.search-container input[type="button"] {
+    margin: 5px;             /* 控制输入框和按钮之间的间距 */
+}
+
+input[type="file"] {
+  width: 220px;
+}
+
+
+  #menu .current a, #menu li a:hover {
+  color: #fefefe;
+  border-bottom: 2px solid #fefefe;
+  margin-bottom: -2px;
+  }
+
+  #submenu {
+  border-bottom: solid 1px #e0e0e0;
+  }
+  
+  #menu ul, #menu li {
+  list-style: none;
+  padding: 0;
+  }
+
+  #menu ul {
+  float: right;
+  }
+
+  #menu li {
+  float: left;
+  }
+
+  .table_list thead td, .table_list tfoot td {
+  background: #e8e0f7;
+  }
+
+  .row_tool .link_button:hover, .link_button:hover, .link_button.current {
+  background: #e8e0f7;
+  color: #000;
+  }
+
+  .row_tool .link_button a:hover {
+  color: #fff;
+  }
+  
+  .table_list tbody tr:hover div {
+  visibility: visible;
+  }
+
+  .table_list tbody tr:hover .select {
+  background: #e8e0f7;
+  }
+
+  .table_list tbody tr:hover {
+//文章列表鼠标经过效果;#ece5f9
+  visibility: visible;
+  background: #efefef;
+  }
+
+
+  .table_list tbody tr:hover  a {
+  color: #7d6ba8;
+  font-weight: 400;
+  }
+
+
+  .table_list .alt {
+//列表间隔深色;
+  background: #faf7fd;
+  }
+
+
+//列表翻页
+  .table_list_tool .pager {
+  float: right;
+  margin-right: 0;
+  color: #e8e0f7;
+  font-size: 16px;
+  }
+
+  .table_list_tool .pager .link_button {
+  border: solid 1px #ece5f9;
+  
+  }
+  
+  .link_button .direction {
+  background: #efefef;
+  padding: 4px 5px;
+  font-size: 16px;
+  margin-right: 4px;
+  border-radius: 3px 3px 3px 3px;
+  }
+
+  .link_button:hover, .link_button.current {
+  background: #e8e0f7;
+  color: #7d6ba8;
+  }
+  
+#top_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  }
+
+.left-text {
+  text-align: left;
+}
+
+.right-text {
+  text-align: right;
+}
+
+#footer a {
+  color: #666;
+  }
+
+  #footer a:hover {
+  color: #333;
+  }
+
+.small_form .button {
+        background-color: #F3F3F3;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+        padding: 6px 20px;
+        transition: background-color 0.5s ease;
+        //border-radius: 10px;
+        cursor: pointer;
+}
+
+.small_form .button:hover {
+    padding: 6px 20px;
+    transition: background-color 0.5s ease;
+    //border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #7d6ba8;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+  #fenye ta {
+  font-size: 20px;
+  display: none;
+  clear: both;
+  padding: 20px 0px 0px 20px;
+  border-top-width: medium;
+  border-top-style: solid;
+  border-top-color: #e8e0f7;
+  }
+  
+  #fenye h3 {
+    text-align: center;
+    float: left;
+    height: 20px;
+    margin: 5px;
+    padding: 5px 20px;
+    background-color: #F3F3F3;
+    color: #7d6ba8;
+    font-weight: lighter;
+    cursor: pointer;
+    background-color: #F3F3F3
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
+    padding: 6px 20px;
+    transition: background-color 0.5s ease;
+    //border-radius: 10px;
+    cursor: pointer;
+}
+@media (max-width:700px) and (max-width:940px)  {
+.Post-div {
+display: flex;
+flex-direction: column-reverse;
+}
+
+}
+
+@media (max-width:940px) {
+
+#op1, #date, .edit_textarea, .edit_textbox, .edit_download, .select-1, .select-2, input, select, .direction, .small_form .input, textarea, .textbox {
+font-size:16px;
+}
+
+  .clear {
+  clear: both;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+  border: none;
+  }
+
+  #menu {
+  width: 95%;
+  margin: 20px auto;
+  border-radius: 0 0 3px 3px;
+  }
+
+  #menu_title {
+  margin: 0;
+  font-size: 24px;
+  float: left;
+  padding: 16px 0 0 20px;
+  font-weight: normal;
+  }
+
+  #menu_title_logout {
+  margin: 0;
+  font-size: 24px;
+  float: right;
+  padding: 16px 20px 0 0;
+  font-weight: normal;
+  }
+
+
+  #menu ul a {
+  font-size: 16px;
+  display: block;
+  padding: 10px 21px;
+  }
+
+
+  #submenu ul, #submenu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  }
+
+  #submenu li {
+  float: left;
+  }
+
+  #submenu li a {
+  display: block;
+  padding: 6px 18px;
+  background: #f0f0f0;
+  border: solid 1px #e0e0e0;
+  margin: 6px 0 6px 6px;
+  text-decoration: none;
+  color: #7d6ba8;
+  }
+
+  #content {
+  width: 99%;
+  margin: 20px auto;
+  background: #fff;
+  border: solid 1px #e0e0e0;
+  border-radius: 8px 8px 8px 8px;
+  }
+
+  #content_box {
+  padding: 20px;
+  }
+
+
+  #footer span {
+  float: right;
+  }
+
+
+
+
+
+
+  .table_list table {
+  border: 0;
+  width: 100%;
+  border: solid 1px #e0e0e0;
+  border-top: 0;
+  color: #333;
+  border-radius: 3px 3px 3px 3px;
+  font-size: 16px;
+  }
+
+  .table_list td {
+  padding: 8px;
+  border-top: solid 1px #e0e0e0;
+  vertical-align: top;
+  }
+
+  .table_list tbody tr div {
+  visibility: hidden;
+  border: none;
+  padding: 0;
+  margin: 0;
+  }
+
+  .table_list .row_name {
+  font-size: 16px;
+  }
+
+  .table_list .row_tool {
+  margin-top: 8px;
+  }
+
+  .table_list_tool span {
+  margin-right: 20px;
+  }
+
+  .table_list_tool {
+  color: #333;
+  }
+
+  .table_list {
+  padding: 6px 0;
+  }
+
+  .post_mode_link {
+  padding-bottom: 10px;
+  font-size: 16px;
+  }
+
+  .post_mode_link span {
+  color: #666;
+  }
+
+.table_list_tool input, .table_list_tool select{
+  color: #666;
+  height:24px;
+  }
+  
+  .table_list_tool .pager {
+  float: right;
+  margin-right: 0;
+  padding-top: 4px;
+  color: #666;
+  font-size: 16px;
+  }
+
+  .table_list_tool .pager .link_button {
+    color: #666;
+  padding: 0px 4px;
+  }
+
+  .table_list_tool .pager input {
+  width: 24px;
+  font-size: 16px;
+  text-align: center;
+  }
+  div.updated, .message {
+  background-color: #F3F3F3
+  border-color: #cfc3e2;
+  padding: 8px;
+  margin-bottom: 20px;
+  }
+
+  div.updated, div.error {
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  }
+
+  .admin_page_name {
+  font-size: 20px;
+  padding-bottom: 16px;
+  color: #333;
+  }
+
+  .admin_page_name a {
+  margin-right: 10px;
+  }
+
+  .small_form .name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  }
+
+  .small_form .label {
+  color: #333;
+  padding-bottom: 4px;
+  }
+
+  .small_form .field {
+  margin: 20px 0px 0 10px;
+  width: 100%;
+  }
+
+  .small_form .input {
+  border: solid 1px #ccc;
+  padding: 4px;
+  border-radius: 3px;
+  }
+
+  .small_form .textbox {
+  width: 95%;
+  border: solid 1px #ccc;
+  padding: 4px;
+  border-radius: 3px;
+  }
+
+
+  .small_form .label {
+  float: left;
+  width: 150px;
+  padding: 4px 0 0 0;
+  font-weight: 600;
+  }
+
+
+.price {
+  float: left;
+  margin: 1px;
+}
+
+  .small_form .field_body {
+  width: 300px;
+  }
+
+  .small_form .info {
+  color: #666;
+  font-size: 16px;
+  padding-top: 8px;
+  width: 90%;
+  float: left;
+  padding-left: 10px;
+  }
+
+  .edit_textbox {
+  width: 99%;
+  border: solid 1px #ccc;
+  font-size: 20px;
+  padding: 3px 4px;
+  border-radius: 3px;
+  }
+
+  .edit_textarea {
+  height: 400px;
+  width: 99%;
+  font-size: 13px;
+  border: solid 1px #ccc;
+  padding: 3px 4px;
+  border-radius: 3px;
+  resize: vertical;
+  }
+  
+  .edit_download_size {
+  width: 100px;
+  font-size: 20px;
+  padding: 3px 4px;
+  }
+  
+  .edit_download {
+  width: 99%;
+  font-size: 20px;
+  padding: 3px 4px;
+  }
+}
+
+@media (min-width:940px) and (max-width: 1365px) {
+  
+  #op1, #date, .edit_textarea, .edit_textbox, .select-1, .select-2, input, select, .direction, .small_form .input, textarea, .textbox {
+font-size:20px;
+}
+
+.select-1, .select-2, input, select {
+  font-size: 20px;
+}
+
+  .clear {
+  clear: both;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  }
+
+  #menu {
+  width: 95%;
+  border-radius: 0 0 3px 3px;
+  margin: 20px auto;
+  }
+
+  #menu_title {
+  margin: 0;
+  font-size: 24px;
+  float: left;
+  padding: 16px 0 0 20px;
+  font-weight: normal;
+  }
+
+  #menu_title_logout {
+  margin: 0;
+  font-size: 24px;
+  float: right;
+  padding: 16px 0 0 20px;
+  font-weight: normal;
+  }
+
+
+  #menu ul a {
+  font-size: 16px;
+  display: block;
+  padding: 10px 22px;
+  }
+
+
+
+  #submenu ul, #submenu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  }
+
+  #submenu li {
+  float: left;
+  }
+
+  #submenu li a {
+  display: block;
+  padding: 6px 18px;
+  background: #f0f0f0;
+  border: solid 1px #e0e0e0;
+  margin: 6px 0 6px 6px;
+  text-decoration: none;
+  color: #655491;
+  }
+
+  #content {
+  width: 95%;
+  margin: 20px auto;
+  background: #fff;
+  border: solid 1px #e0e0e0;
+  border-radius: 8px 8px 8px 8px;
+  }
+
+  #content_box {
+  padding: 20px;
+  }
+
+  #footer span {
+  float: right;
+  }
+
+  #footer a {
+  color: #666;
+  }
+
+  #footer a:hover {
+  color: #333;
+  }
+
+  .link_button {
+  background: #efefef;
+  padding: 5px 10px;
+  font-size: 16px;
+  margin-right: 4px;
+  border-radius: 3px 3px 3px 3px;
+  }
+
+
+  .table_list table {
+  border: 0;
+  width: 100%;
+  border: solid 1px #e0e0e0;
+  border-top: 0;
+  color: #333;
+  border-radius: 3px 3px 3px 3px;
+  font-size: 16px;
+  }
+
+  .table_list td {
+  padding: 8px;
+  border-top: solid 1px #e0e0e0;
+  vertical-align: top;
+  }
+
+
+
+  .table_list tbody tr div {
+  visibility: hidden;
+  border: none;
+  padding: 0;
+  margin: 0;
+  }
+
+  .table_list .row_name {
+  font-size: 16px;
+  }
+
+  .table_list .row_tool {
+  margin-top: 8px;
+  }
+
+  .table_list_tool span {
+  margin-right: 20px;
+  }
+
+  .table_list_tool {
+  color: #333;
+  }
+
+  .table_list {
+  padding: 6px 0;
+  }
+
+  .post_mode_link {
+  padding-bottom: 10px;
+  font-size: 16px;
+  }
+
+  .post_mode_link span {
+  color: #666;
+  }
+
+.table_list_tool input, .table_list_tool select{
+  color: #666;
+  height:30px;
+  }
+  
+  .table_list_tool .pager {
+  float: right;
+  margin-right: 0;
+  padding-top: 4px;
+  color: #666;
+  font-size: 16px;
+  }
+
+  .table_list_tool .pager .link_button {
+    color: #666;
+  padding: 0px 4px;
+  }
+
+  .table_list_tool .pager input {
+  width: 24px;
+  font-size: 16px;
+  text-align: center;
+  }
+
+  div.updated, .message {
+  background-color: #F3F3F3
+  border-color: #cfc3e2;
+  padding: 8px;
+  margin-bottom: 20px;
+  }
+
+  div.updated, div.error {
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  }
+
+  .admin_page_name {
+  font-size: 26px;
+  padding-bottom: 16px;
+  color: #333;
+  }
+
+  .admin_page_name a {
+  margin-right: 10px;
+  }
+
+  .small_form .name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  }
+
+  .small_form .label {
+  color: #333;
+  padding-bottom: 4px;
+  }
+
+  .small_form .field {
+  margin: 20px;
+  }
+
+  .small_form .input {
+  border: solid 1px #ccc;
+  padding: 4px;
+  border-radius: 3px;
+  }
+
+  .small_form .textbox {
+  width: 95%;
+  border: solid 1px #ccc;
+  padding: 4px;
+  border-radius: 3px;
+  }
+
+  .small_form .info {
+  color: #666;
+  font-size: 16px;
+  }
+
+  .small_form .label {
+  float: left;
+  width: 180px;
+  padding: 0px 0 0 0;
+  }
+
+
+.price {
+	width: 400px;
+  float: left;
+  margin: 1px;
+}
+
+
+
+  .small_form .textbox {
+  float: left;
+  }
+
+  .small_form .field_body {
+  width: 300px;
+  }
+
+  .small_form .info {
+  padding-left: 10px;
+  float: left;
+  }
+
+  .edit_textbox {
+  width: 99%;
+  border: solid 1px #ccc;
+  font-size: 20px;
+  padding: 3px 4px;
+  border-radius: 3px;
+  }
+
+  .edit_textarea {
+  height: 400px;
+  width: 99%;
+  font-size: 13px;
+  border: solid 1px #ccc;
+  padding: 3px 4px;
+  border-radius: 3px;
+  resize: vertical;
+  }
+  
+  .edit_download_size {
+  width: 100px;
+  font-size: 20px;
+  padding: 3px 4px;
+  }
+  
+  .edit_download {
+  width: 50%;
+  font-size: 20px;
+  padding: 3px 4px;
+  }
+  
+  #fenye h3 {
+  line-height: 20px;
+  font-size: 20px;
+  }
+
+
+  
+}
+
+@media (min-width:1366px) {
+
+  html, body {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  }
+
+#op1, #date, .edit_textarea, .edit_textbox, .select-1, .select-2, input, select, .direction, .small_form .input, textarea, .textbox {
+font-size:20px;
+}
+.select-1, .select-2, input, select {
+  font-size: 20px;
+}
+
+  form {
+  padding: 0;
+  margin: 0;
+  }
+
+  .clear {
+  clear: both;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+  border: none;
+  }
+
+  #menu {
+  width: 95%;
+  border-radius: 0 0 3px 3px;
+  margin: 20px auto;
+  }
+
+  #menu_title {
+  margin: 0;
+  font-size: 34px;
+  float: left;
+  padding: 16px 0 0 20px;
+  font-weight: normal;
+  }
+
+  #menu_title_logout {
+  margin: 0;
+  font-size: 34px;
+  float: right;
+  padding: 16px 0 0 20px;
+  font-weight: normal;
+  }
+
+
+
+  #menu ul a {
+  font-size: 20px;
+  display: block;
+  padding: 10px 22px;
+  }
+
+
+
+  #submenu ul, #submenu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  }
+
+  #submenu li {
+  float: left;
+  }
+
+  #submenu li a {
+  display: block;
+  padding: 6px 18px;
+  background: #f0f0f0;
+  border: solid 1px #e0e0e0;
+  margin: 6px 0 6px 6px;
+  text-decoration: none;
+  color: #999;
+  }
+
+  #content {
+  width: 95%;
+  margin: 20px auto;
+  background: #fff;
+  border: solid 1px #e0e0e0;
+  border-radius: 8px 8px 8px 8px;
+  }
+
+  #content_box {
+  padding: 20px;
+  }
+
+
+  #footer span {
+  float: right;
+  }
+
+  #footer a {
+  color: #666;
+  }
+
+  #footer a:hover {
+  color: #333;
+  }
+
+  .link_button {
+  background: #efefef;
+  padding: 5px 10px;
+  font-size: 20px;
+  margin-right: 4px;
+  border-radius: 3px 3px 3px 3px;
+  }
+
+  .table_list table {
+  border: 0;
+  width: 100%;
+  border: solid 1px #e0e0e0;
+  border-top: 0;
+  color: #333;
+  border-radius: 3px 3px 3px 3px;
+  font-size: 20px;
+  }
+
+  .table_list td {
+  padding: 8px;
+  border-top: solid 1px #e0e0e0;
+  vertical-align: top;
+  }
+
+  .table_list tbody tr div {
+  visibility: hidden;
+  border: none;
+  padding: 0;
+  margin: 0;
+  }
+
+  .table_list .row_name {
+  font-size: 20px;
+  }
+
+  .table_list .row_tool {
+  margin-top: 8px;
+  }
+
+  .table_list_tool span {
+  margin-right: 20px;
+  }
+
+  .table_list_tool {
+  color: #333;
+  }
+
+  .table_list {
+  padding: 6px 0;
+  }
+
+  .post_mode_link {
+  padding-bottom: 10px;
+  font-size: 20px;
+  }
+
+  .post_mode_link span {
+  color: #666;
+  }
+
+.table_list_tool input, .table_list_tool select{
+  color: #666;
+  height:30px;
+  }
+  
+  .table_list_tool .pager {
+  float: right;
+  margin-right: 0;
+  padding-top: 4px;
+  color: #666;
+  font-size: 16px;
+  }
+
+  .table_list_tool .pager .link_button {
+    color: #666;
+  padding: 0px 4px;
+  }
+
+  .table_list_tool .pager input {
+  width: 24px;
+  font-size: 16px;
+  text-align: center;
+  }
+
+  div.updated, .message {
+  background-color: #e8e0f7;
+  border-color: #655491;
+  padding: 8px;
+  margin-bottom: 20px;
+  }
+
+  div.updated, div.error {
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  }
+
+  .admin_page_name {
+  font-size: 26px;
+  padding-bottom: 16px;
+  color: #333;
+  }
+
+  .admin_page_name a {
+  margin-right: 10px;
+  }
+
+  .small_form .name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  }
+
+  .small_form .label {
+  color: #333;
+  padding-bottom: 4px;
+  }
+
+  .small_form .field {
+        margin: 20px;
+        padding: 0 30px;
+  }
+
+  .small_form .input {
+  border: solid 1px #ccc;
+  padding: 4px;
+  border-radius: 3px;
+  }
+
+  .small_form .textbox {
+  width: 95%;
+  border: solid 1px #ccc;
+  padding: 4px;
+  border-radius: 3px;
+  }
+
+  .small_form .info {
+  color: #666;
+  font-size: 20px;
+  }
+
+
+  .small_form .label {
+  float: left;
+  width: 220px;
+  }
+
+
+.price {
+	width: 400px;
+  float: left;
+  margin: 1px;
+}
+
+
+  .small_form .textbox {
+  width: 100%;
+  float: left;
+  }
+
+  .small_form .field_body {
+  width: 300px;
+  }
+
+  .small_form .info {
+  padding-left: 10px;
+  float: left;
+  }
+
+  .edit_textbox {
+  width: 99%;
+  border: solid 1px #ccc;
+  font-size: 20px;
+  padding: 3px 4px;
+  border-radius: 3px;
+  }
+
+  .edit_textarea {
+  height: 400px;
+  width: 99%;
+  font-size: 20px;
+  border: solid 1px #ccc;
+  padding: 3px 4px;
+  border-radius: 3px;
+  resize: vertical;
+  }
+
+  .edit_download_size {
+  width: 100px;
+  font-size: 20px;
+  padding: 3px 4px;
+  }
+  
+  .edit_download {
+  width: 59%;
+  font-size: 20px;
+  padding: 3px 4px;
+  }
+  
+  #fenye {
+  width: 100%;
+  margin: auto;
+  display: block;
+  float: left;
+  }
+
+
+
+  #fenye h3 {
+  line-height: 20px;
+  font-size: 20px;
+  }
+
+
+}
+
+
+.tag-button {
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #F3F3F3
+    color: #7d6ba8;
+    border-color: #655491;
+    border: 1px solid #7d6ba8;
+    border-radius: 3px;
+    cursor: pointer;
+ }
+.tag-button:hover {
+  background-color: #e8e0f7;
+   }
+ .help-icon {
+    display: inline-block;
+    color: #7d6ba8;
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 12px;
+    vertical-align: super;
+    width: 1em;
+    height: 1em;
+    border: 1px solid #7d6ba8;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1em;
+    position: relative;
+}
+
+.help-icon::after {
+    content: '？';
+    position: absolute;
+    left: 0.2em;
+}
+
+/* ============ 侧栏布局 A：主菜单左置，内容在右（纯样式覆盖） ============ */
+body{
+  display:grid !important;
+  grid-template-columns:240px minmax(0,1fr) !important;
+  grid-template-rows:auto minmax(0,1fr) !important;
+  height:100vh;
+  margin:0 !important;padding:0 !important;
+  overflow:hidden !important;
+  align-items:stretch;
+}
+body:before{content:none !important;}
+body > div:nth-of-type(1){grid-column:2 !important;grid-row:1 !important;}
+body > div:nth-of-type(2){grid-column:1 !important;grid-row:1 / span 2 !important;}
+body > div:nth-of-type(3){grid-column:2 !important;grid-row:2 !important;overflow-y:auto;}
+
+#menu{
+  width:auto !important;margin:0 !important;
+  min-height:100vh;box-sizing:border-box;
+  padding:16px 0 !important;
+  background:linear-gradient(180deg,#7d6ba8 0%,#655491 100%) !important;
+  border-radius:0 !important;
+  position:sticky;top:0;align-self:start;overflow-y:auto;
+  box-shadow:2px 0 12px rgba(0,0,0,.25);
+}
+#menu_title{float:none !important;margin:0 !important;padding:8px 18px 14px !important;font-size:20px !important;border-bottom:1px solid rgba(153,212,255,.22);}
+#menu_title_logout{float:none !important;margin:0 !important;padding:8px 18px 12px !important;font-size:14px !important;text-align:right;}
+#menu ul{float:none !important;display:flex !important;flex-direction:column;margin:6px 0 0 !important;padding:0 !important;}
+#menu li{float:none !important;list-style:none;}
+#menu ul a{display:block !important;padding:11px 18px !important;font-size:15px !important;color:#f4f0fb !important;border-bottom:none !important;border-left:3px solid transparent;margin:0 !important;transition:background .18s ease,color .18s ease;}
+#menu .current a,#menu li a:hover{background:rgba(153,212,255,.14) !important;border-bottom:none !important;border-left:3px solid #e8e0f7 !important;margin:0 !important;color:#ffffff !important;}
+
+#content{width:auto !important;margin:0 !important;border-radius:0 !important;min-height:0;display:flex;flex-direction:column;}
+#content_box{padding:24px 28px !important;flex:1 1 auto;}
+#top_box{padding:14px 28px !important;width:auto !important;}
+#footer{padding:4px 28px 0 !important;margin-top:auto !important;}
+
+@media (max-width:820px){
+  body{display:block !important;height:auto !important;overflow:visible !important;}
+  body > div:nth-of-type(1),body > div:nth-of-type(2),body > div:nth-of-type(3){grid-column:auto !important;grid-row:auto !important;}
+  #menu{position:static !important;min-height:auto !important;width:95% !important;margin:16px auto !important;border-radius:8px !important;}
+  #menu ul{flex-direction:row;flex-wrap:wrap;}
+  #menu ul a{padding:8px 14px !important;border-left:none !important;}
+  #content{width:99% !important;margin:14px auto !important;border-radius:8px !important;overflow:visible !important;}
+}
+/* ===== 补全：高级设置卡片 / 开关 / 当前项（结构同松花蛋黄，配色沿用蓝白） ===== */
+.current, .current:hover {
+  color: #7d6ba8;
+  border-bottom: 2px solid #7d6ba8;
+  margin-bottom: -2px;
+}
+.settings-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+.setting-card {
+  flex: 0 0 260px;
+  background: #faf7fd;
+  border: 1px solid #7d6ba8e0;
+  border-radius: 3px;
+  padding: 16px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.15);
+  box-sizing: border-box;
+  transition: 0.25s;
+  height: 240px;
+}
+.setting-card:hover {
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.20);
+}
+.setting-card .card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #7d6ba8;
+  margin: 0 0 12px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #ded6ef;
+}
+.setting-card .card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.setting-card .label {
+  font-size: 18px;
+  color: #333;
+}
+.setting-card .info {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
+.switch-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #bbbbbb;
+  transition: .3s;
+  border-radius: 24px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: #ffffff;
+  transition: .3s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #7d6ba8e0;
+}
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+.save-card {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.save-card input.button {
+  width: 100%;
+}
+button_shadow {
+  text-align: center;
+  height: 20px;
+  margin: 5px;
+  padding: 6px 20px;
+  background-color: #F3F3F3;
+  color: #7d6ba8e0;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: background-color .5s ease;
+}
+@media (max-width: 768px) {
+  .setting-card {
+    flex: 1 1 100%;
+  }
+}
+/* QS TTS: reserve left label column on desktop/tablet, full width on phone */
+#ttsRowsWrap { margin-left: 0; }
+@media (min-width: 768px) {
+  #ttsRowsWrap { margin-left: 200px; }
+}
+.tts-row { box-sizing: border-box; width: 100%; }
+
+/* === admin set-page tab contrast (2026-11-12) === */
+#fenye h3 {
+    background-color: #f5f3f8;
+    color: #38304c;
+    border: 1px solid #c4bcd8;
+    text-shadow: none;
+}
+#fenye h3:hover {
+    background-color: #e8e4ef;
+}
+#fenye h3.active {
+    background-color: #51466d;
+    color: #ffffff;
+    border-color: #51466d;
+}
+
+/* === 后台排版统一（2026-11-18）：设置页 tab 加粗 + 子导航链接降字号 + 文章页“系统模式”随标题 === */
+#fenye h3,
+#fenye h3.active {
+    font-weight: 700;
+}
+
+/* 设置页顶部子导航链接（系统设置/管理用户/邮件设置…）：窄屏逐级降字号，只收链接、不动页头标题 */
+@media (max-width: 940px) {
+    .admin_page_name a {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+}
+
+@media (max-width: 600px) {
+    .admin_page_name a {
+        font-size: 15px;
+        line-height: 1.9;
+    }
+}
+
+/* 文章列表右上角“系统模式：小说系统”：与文章标题同字号（≤1365 为 16px，宽屏 20px） */
+.admin_page_name .post_sys_mode {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+@media (min-width: 1366px) {
+    .admin_page_name .post_sys_mode {
+        font-size: 20px;
+    }
+}

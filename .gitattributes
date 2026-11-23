@@ -1,0 +1,7 @@
+# 换行符规则：sh 必须 LF（否则 Linux 上执行报 $'\r': command not found），bat 必须 CRLF
+*.sh  text eol=lf
+*.bat text eol=crlf
+
+# 入库但不随发行包发布：本 CMS 官网自用主题（git archive / 发行包排除）
+files/theme/Qsiscms/** export-ignore
+files/theme/Qsiscms/   export-ignore

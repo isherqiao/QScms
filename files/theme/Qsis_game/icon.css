@@ -1,0 +1,40 @@
+.star-icon {
+ content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: gold;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+
+}
+
+
+.search-icon {
+  position: relative;
+  width: 20px;  /* 圆形外框的宽度 */
+  height: 20px;
+  border: 3px solid #3f3f3f;  /* 边框颜色 */
+  border-radius: 50%;  /* 圆形外框 */
+  display: inline-block;
+  background-color: transparent;
+  cursor: pointer;  /* 鼠标指针为手型 */
+  margin: 10px;
+}
+
+.search-icon::before {
+  content: '';
+  position: absolute;
+  width: 12px;  /* 手柄部分的宽度，稍微拉长一点 */
+  height: 6px;  /* 手柄的高度 */
+  background-color: #3f3f3f;
+  top: 125%;  /* 垂直居中 */
+  left: 80%;  /* 横向偏移，接近右边 */
+  transform: translateY(-50%) rotate(45deg);  /* 旋转45度，使其看起来像放大镜的手柄 */
+}
+
+.search-icon::after {
+}
+
+.search-icon:hover {
+  background-color: #b9b9b9;  /* 鼠标悬停时的背景色 */
+}

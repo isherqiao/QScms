@@ -1,0 +1,21 @@
+# QScms 文件版：把路径式 URL 重写到 index.php 的查询式路由
+# 例：/tag/认知心理/ -> ?tag/认知心理/      /tags/ -> ?tags/      /contact.html -> ?contact/
+RewriteEngine On
+RewriteBase /
+
+# 真实存在的文件或目录直接放行（scc/、files/、upload/、css、图片等不受影响）
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 站点根目录
+RewriteRule ^$ index.php [L]
+
+# 目录式静态入口 /tag/xx/index.html -> ?tag/xx/
+RewriteRule ^(.+)/index\.html$ index.php?$1/ [L,QSA]
+
+# 页面式静态后缀 /xxx.html -> ?xxx/
+RewriteRule ^([^/]+)\.html$ index.php?$1/ [L,QSA]
+
+# 其余一切路径 -> 查询式（保留原始查询串）
+RewriteRule ^(.+)$ index.php?$1 [L,QSA]

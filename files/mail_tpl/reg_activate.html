@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>账号邮箱激活</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#333;line-height:1.6;}
+.box{max-width:580px;margin:20px auto;border:1px #eee solid;padding:24px;}
+.btn{display:inline-block;background:#2b78e4;color:#ffffff;padding:10px 18px;text-decoration:none;border?radius:4px;}
+</style>
+</head>
+<body>
+<div class="box">
+    <h3>您好！</h3>
+    <p>收到本邮件是因为有人使用该邮箱进行本站注册。</p>
+    <p>请点击下方按钮完成邮箱激活，激活后即可设置账号信息：</p>
+    <p><a class="btn" href="{{ACTIVATE_URL}}">立即激活账号</a></p>
+    <p>如果按钮无法点击，请复制下面链接到浏览器访问：</p>
+    <p>{{ACTIVATE_URL}}</p>
+    <hr>
+    <p>若不是您本人操作，请直接忽略这封邮件，账号不会被创建。</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+//Created by Qsis (Qsis.cn)
+//CUser:	isher(qiaoshuo@gmail.com)
+//CData:	2024/7/18 19:26:53
+ 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        .help-icon {
+            display: inline-block;
+            color: #007BFF;
+            cursor: pointer;
+            margin-right: 5px;
+            font-size: 12px;
+            vertical-align: super;
+            width: 1em;
+            height: 1em;
+            border: 1px solid #007BFF;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 1em;
+            position: relative;
+        }
+
+        .help-icon::after {
+            content: '？';
+            position: absolute;
+            left: 0.2em;
+        }

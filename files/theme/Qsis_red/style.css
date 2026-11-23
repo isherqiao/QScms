@@ -1,0 +1,942 @@
+/* ============================================================
+   Qsis_red 红金编辑风（原 Cn-newyear 改名，去贺岁字样）
+   设计取向：与 Qsis_business / Qsis_gundam 同一路的大气感——
+   衬线大字、大留白、细线分割、小圆角；
+   春节氛围靠深红金、灯笼、烟花插画（image.jpg）承担，
+   不用整屏红底白字，保证正文可读。
+   ============================================================ */
+
+:root {
+    --ny-red: #9d1210;
+    --ny-red-deep: #7d1512;
+    --ny-red-soft: #b8231c;
+    --ny-gold: #c69a52;
+    --ny-gold-light: #f0d79b;
+    --ny-gold-pale: #fbf3e2;
+    --ny-paper: #fffdf8;
+    --ny-bg: #fbf7f0;
+    --ny-ink: #2b2322;
+    --ny-ink-soft: #6b5f57;
+    --ny-line: #e6dccb;
+    --ny-line-soft: #efe8dc;
+    --ny-radius: 3px;
+}
+
+* {
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--ny-bg);
+    color: var(--ny-ink);
+    font-family: "Georgia", "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", "SimSun", -apple-system, "PingFang SC", "Microsoft YaHei", serif;
+    font-size: 16px;
+    line-height: 1.85;
+    letter-spacing: 0.02em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}
+
+a {
+    color: var(--ny-red);
+    text-decoration: none;
+    transition: color 0.18s;
+}
+
+a:hover {
+    color: var(--ny-red-soft);
+}
+
+p {
+    margin: 0.7em 0;
+    line-height: 1.9;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: 700;
+    color: var(--ny-red-deep);
+    letter-spacing: 0.02em;
+}
+
+.clear {
+    clear: both;
+}
+
+/* ---------- 版心 ---------- */
+#main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 30px;
+}
+
+/* ---------- 顶部大屏（灯笼 + 烟花插画 + 衬线大字） ---------- */
+#header {
+    position: relative;
+    margin: 0;
+    padding: 78px 24px 84px;
+    overflow: hidden;
+    background-color: var(--ny-red);
+    /* 上层深红渐变压住右侧插画，左侧保证文字可读 */
+    background-image:
+        linear-gradient(90deg,
+            var(--ny-red) 0%,
+            var(--ny-red) 40%,
+            rgba(157, 18, 16, 0.78) 60%,
+            rgba(125, 21, 18, 0.25) 100%),
+        var(--ny-hero-img, url("image.jpg"));
+    background-repeat: no-repeat, no-repeat;
+    background-position: left top, right bottom;
+    background-size: 100% 100%, auto 92%;
+    border-bottom: 3px solid var(--ny-gold);
+}
+
+/* 左上灯笼 */
+#header::before {
+    content: "";
+    position: absolute;
+    left: 26px;
+    top: -12px;
+    width: 34px;
+    height: 44px;
+    border-radius: 50% 50% 44% 44% / 56% 56% 44% 44%;
+    background: linear-gradient(180deg, #ff8a72, #cf241c 46%, #8d0f0c 100%);
+    box-shadow:
+        0 0 0 2px rgba(240, 215, 155, 0.7),
+        inset 0 6px 0 rgba(240, 215, 155, 0.85),
+        inset 0 -6px 0 rgba(240, 215, 155, 0.7),
+        0 0 30px rgba(255, 130, 90, 0.5);
+}
+
+/* 顶部细金线 */
+#header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--ny-gold-light) 22%, var(--ny-gold) 50%, var(--ny-gold-light) 78%, transparent);
+    opacity: 0.85;
+}
+
+/* 眉眼小字：文案由「主题设置 → 首屏小字」控制 */
+#header .title {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 0 22px;
+    padding: 0 0 8px;
+    float: none;
+    border-bottom: 1px solid rgba(240, 215, 155, 0.55);
+    color: var(--ny-gold-light);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.32em;
+    line-height: 1.6;
+    text-align: left;
+    text-indent: 0;
+    animation: none;
+}
+
+#header .title:empty {
+    display: none;
+}
+
+/* 站名：衬线大标题 */
+#sitename {
+    position: relative;
+    max-width: 660px;
+    text-align: left;
+    padding: 0;
+}
+
+#sitename a {
+    display: block;
+    color: #fff8ea;
+    font-family: inherit;
+    font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    line-height: 1.35;
+    text-transform: none;
+    text-shadow: 0 2px 18px rgba(90, 8, 8, 0.45);
+    -webkit-text-stroke: 0;
+}
+
+#sitename a:hover {
+    color: var(--ny-gold-light);
+}
+
+/* 首屏副文案（主题设置里填了才出现） */
+.hero-sub {
+    position: relative;
+    max-width: 620px;
+    margin: 18px 0 0;
+    color: rgba(255, 248, 234, 0.84);
+    font-size: 15px;
+    line-height: 1.95;
+    letter-spacing: 0.06em;
+    text-shadow: 0 1px 12px rgba(90, 8, 8, 0.4);
+}
+
+/* ---------- 菜单：白底 + 红线，横向细排 ---------- */
+#content .amenum,
+.amenum {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    float: none;
+    margin: 0 0 18px;
+    padding: 0;
+    background: #fff;
+    border: 0;
+    border-bottom: 3px solid var(--ny-red);
+    border-radius: 0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+    line-height: normal;
+    font-size: 16px;
+    color: var(--ny-ink);
+}
+
+/* qs_menu 输出 ul > li > a，这层 ul 必须自己也是 flex */
+.amenum ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.amenum ul li {
+    float: none;
+}
+
+.amenum a {
+    display: block;
+    float: none;
+    margin: 0;
+    padding: 15px 20px;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    border-radius: 0;
+    background: transparent;
+    color: var(--ny-ink-soft);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-align: left;
+    box-shadow: none;
+    transition: color 0.18s, border-color 0.18s;
+}
+
+.amenum a:hover {
+    background: transparent;
+    color: var(--ny-red);
+    border-bottom-color: var(--ny-gold);
+    transform: none;
+}
+
+.amenum li.current a {
+    color: var(--ny-red-deep);
+    font-weight: 700;
+    border-bottom-color: var(--ny-gold);
+}
+
+/* 侧栏小菜单 */
+#side .amenu {
+    float: none;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    margin: 0 0 16px;
+}
+
+.amenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.amenu ul li {
+    float: none;
+}
+
+.amenu ul li a {
+    display: inline-block;
+    padding: 7px 14px;
+    border: 1px solid var(--ny-line);
+    border-radius: var(--ny-radius);
+    background: #fff;
+    color: var(--ny-ink-soft);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.amenu ul li a:hover {
+    background: var(--ny-red);
+    border-color: var(--ny-red);
+    color: #fff;
+}
+
+/* ---------- 面包屑 ---------- */
+#page_info {
+    padding: 0;
+    margin: 0 0 16px;
+    display: block;
+}
+
+#page_info span {
+    display: inline-block;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--ny-ink-soft);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+}
+
+/* ---------- 计数 + 分页 ---------- */
+#page_bar {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--ny-line);
+    border-radius: 0;
+    padding: 0 0 14px;
+    margin: 0 0 22px;
+    color: var(--ny-ink-soft);
+    font-size: 13px;
+    line-height: 1.9;
+    text-align: left;
+    text-indent: 0;
+    letter-spacing: 0.08em;
+}
+
+#page_bar .pagination {
+    justify-content: flex-start;
+    margin: 12px 0 0 !important;
+}
+
+#page_bar a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    height: 34px;
+    margin: 0 6px 6px 0;
+    padding: 0 10px;
+    border: 1px solid var(--ny-line);
+    border-radius: var(--ny-radius);
+    background: #fff;
+    color: var(--ny-ink-soft);
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+}
+
+#page_bar a:hover {
+    border-color: var(--ny-red);
+    background: var(--ny-red);
+    color: #fff;
+}
+
+/* 当前页码（span.pagination-active） */
+#page_bar .pagination-active,
+.pagination .pagination-active {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    height: 34px;
+    margin: 0 6px 6px 0;
+    padding: 0 10px;
+    border: 1px solid var(--ny-red);
+    border-radius: var(--ny-radius);
+    background: var(--ny-red);
+    color: #fff8ea;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* 分页数字层是内联 flex，窄屏必须能换行且可收缩 */
+.pagination-numbers {
+    flex-wrap: wrap !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+}
+
+/* ---------- 文章卡片 ---------- */
+#content .post {
+    position: relative;
+    margin: 0 0 20px;
+    padding: 0;
+    background: #fff;
+    border: 1px solid var(--ny-line);
+    border-left: 3px solid var(--ny-red);
+    border-radius: var(--ny-radius);
+    box-shadow: none;
+    color: var(--ny-ink);
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#content .post:hover {
+    border-color: var(--ny-line);
+    border-left-color: var(--ny-gold);
+    box-shadow: 0 2px 14px rgba(120, 60, 30, 0.07);
+}
+
+#content .post::before {
+    content: none;
+}
+
+#content .post .title {
+    margin: 0;
+    padding: 22px 26px 14px;
+    background: transparent;
+    border-bottom: 0;
+    color: var(--ny-red-deep);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+}
+
+#content .post .title a,
+#content .post .title a:hover {
+    color: var(--ny-red-deep);
+    font-size: 22px;
+}
+
+#content .post .title a:hover {
+    color: var(--ny-red-soft);
+}
+
+#content .post .title .post_edit {
+    float: right;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+#content .post .title .post_edit a {
+    color: var(--ny-ink-soft);
+    font-size: 12px;
+}
+
+#content .post .content {
+    padding: 0 26px 4px;
+    line-height: 1.9;
+    font-size: 16px;
+    overflow: visible;
+    color: var(--ny-ink);
+}
+
+#content .post .content .content_post,
+#article-content {
+    text-indent: 2em;
+    color: var(--ny-ink);
+}
+
+#article-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
+}
+
+/* 列表缩略图：固定框 + 裁切，缺图也不会把卡片撑高 */
+.image-container {
+    float: left;
+    width: 148px;
+    height: 100px;
+    margin: 6px 18px 10px 0;
+    overflow: hidden;
+    border-radius: 2px;
+    background: var(--ny-gold-pale);
+}
+
+.image-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    border: 0;
+    object-fit: cover;
+}
+
+/* 日期与标签：细线收尾 */
+.post_meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 18px;
+    margin: 10px 26px 0;
+    padding: 12px 0 16px;
+    border-top: 1px solid var(--ny-line-soft);
+    background: transparent;
+    font-size: 12.5px;
+    line-height: 1.8;
+    color: var(--ny-ink-soft);
+    letter-spacing: 0.06em;
+    overflow: visible;
+}
+
+.post_meta a {
+    margin: 0;
+    color: var(--ny-ink-soft);
+}
+
+.post_meta a:hover {
+    color: var(--ny-red);
+}
+
+.post_date,
+.post_tag {
+    float: none;
+    margin: 0;
+    padding: 0;
+    color: var(--ny-ink-soft);
+    font-size: 12.5px;
+}
+
+.post_comm {
+    float: none;
+    font-size: 12px;
+    padding: 0 0 0 18px;
+    background: url(comm.gif) no-repeat left center;
+}
+
+/* ---------- 侧栏 ---------- */
+#side {
+    width: 100%;
+}
+
+.sidebox,
+.about {
+    background: #fff;
+    border: 1px solid var(--ny-line);
+    border-radius: var(--ny-radius);
+    padding: 18px 20px;
+    margin: 0 0 16px;
+    color: var(--ny-ink-soft);
+    font-size: 14px;
+    line-height: 1.9;
+    box-shadow: none;
+    letter-spacing: 0.02em;
+}
+
+.about {
+    color: var(--ny-ink-soft);
+}
+
+.sidebox img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    display: block;
+}
+
+.sidebox .search,
+input.search {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    margin: 0 0 10px;
+    border: 1px solid var(--ny-line);
+    border-radius: var(--ny-radius);
+    background: #fff;
+    color: var(--ny-ink);
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.sidebox .search:focus,
+input.search:focus {
+    outline: none;
+    border-color: var(--ny-red);
+}
+
+.sidebox .submit,
+input.submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--ny-red);
+    border-radius: var(--ny-radius);
+    background: var(--ny-red);
+    color: #fff8ea;
+    font-size: 14px;
+    font-family: inherit;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background 0.18s;
+}
+
+.sidebox .submit:hover,
+input.submit:hover {
+    background: var(--ny-red-deep);
+    color: #fff8ea;
+}
+
+/* ---------- 友链 ---------- */
+#ylink {
+    position: relative;
+    margin: 0 0 20px;
+    padding: 18px 20px;
+    background: #fff;
+    border: 1px solid var(--ny-line);
+    border-radius: var(--ny-radius);
+    color: var(--ny-ink-soft);
+    font-size: 13px;
+    line-height: 2.1;
+    letter-spacing: 0.04em;
+    box-shadow: none;
+}
+
+#ylink a {
+    display: inline-block;
+    margin: 0 14px 0 0;
+    color: var(--ny-ink-soft);
+    font-size: 13px;
+    line-height: 2.1;
+}
+
+#ylink a:hover {
+    color: var(--ny-red);
+}
+
+/* ---------- 页脚 ---------- */
+#footer {
+    position: relative;
+    margin: 0;
+    padding: 26px 24px 30px;
+    border: 0;
+    border-top: 3px solid var(--ny-gold);
+    border-radius: 0;
+    background: var(--ny-red-deep);
+    color: rgba(255, 244, 228, 0.86);
+    font-size: 13px;
+    line-height: 1.95;
+    letter-spacing: 0.04em;
+    box-shadow: none;
+}
+
+#footer a {
+    color: var(--ny-gold-light);
+}
+
+#footer a:hover {
+    color: #fff;
+}
+
+/* ---------- 存档 / 标签列表 ---------- */
+.date_list,
+.tag_list {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding-right: 20px;
+}
+
+.date_list h2,
+.tag_list h2 {
+    font-size: 15px;
+    margin: 0 0 10px;
+    letter-spacing: 0.08em;
+}
+
+#month_list,
+#tag_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 2;
+}
+
+#list li,
+.date_list,
+.tag_list {
+    margin-bottom: 8px;
+}
+
+/* ---------- 评论 ---------- */
+#comm {
+    margin: 14px 26px 0;
+    padding: 16px 0 4px;
+    border-top: 1px solid var(--ny-line-soft);
+}
+
+/* ---------- 日历与表格（保留原功能） ---------- */
+.calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.month {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 16px;
+    border: 1px solid var(--ny-line);
+    border-radius: var(--ny-radius);
+    overflow: hidden;
+}
+
+.month-header {
+    background: var(--ny-gold-pale);
+    color: var(--ny-red-deep);
+    text-align: center;
+    padding: 8px;
+    font-weight: 700;
+}
+
+.month-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.month-table th,
+.month-table td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid var(--ny-line-soft);
+}
+
+.month-table td a {
+    color: var(--ny-red-deep);
+}
+
+.month-table td a.red {
+    color: var(--ny-red-soft);
+}
+
+.month-table th {
+    background: #fff;
+    color: var(--ny-ink-soft);
+}
+
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 0;
+}
+
+button {
+    padding: 7px 14px;
+    font-size: 13px;
+    font-family: inherit;
+    border: 1px solid var(--ny-line);
+    border-radius: var(--ny-radius);
+    background: #fff;
+    color: var(--ny-ink-soft);
+    cursor: pointer;
+}
+
+button:hover {
+    border-color: var(--ny-red);
+    color: var(--ny-red);
+}
+
+/* ---------- 其它 ---------- */
+#navbar {
+    width: 100%;
+    margin: 16px auto 0;
+}
+
+#navbar a {
+    text-indent: -100em;
+}
+
+/* ============================================================
+   两栏（>=900px），其余单栏自适应
+   ============================================================ */
+@media (min-width: 900px) {
+    #content {
+        float: left;
+        width: calc(100% - 300px);
+    }
+
+    #side {
+        float: right;
+        width: 280px;
+    }
+
+    .image-container {
+        width: 160px;
+        height: 108px;
+    }
+
+    #content .post .title,
+    #content .post .title a {
+        font-size: 23px;
+    }
+
+    #ylink,
+    #footer {
+        clear: both;
+    }
+}
+
+/* ---------- 平板 ---------- */
+@media (max-width: 900px) {
+    #header {
+        padding: 56px 20px 60px;
+        background-size: 100% 100%, auto 78%;
+    }
+
+    #main {
+        padding: 0 18px 24px;
+    }
+}
+
+/* ---------- 手机 ---------- */
+@media (max-width: 640px) {
+    #main {
+        padding: 0 14px 20px;
+    }
+
+    #header {
+        padding: 42px 16px 46px;
+        /* 窄屏插画会糊，只留纯红 + 灯笼 + 金线，反而更干净 */
+        background-image:
+            linear-gradient(180deg, #a91411 0%, var(--ny-red) 46%, var(--ny-red-deep) 100%);
+        background-size: 100% 100%;
+        border-bottom: 3px solid var(--ny-gold);
+    }
+
+    #header::before {
+        width: 24px;
+        height: 32px;
+        left: 14px;
+        top: -8px;
+    }
+
+    #header .title {
+        font-size: 12px;
+        letter-spacing: 0.24em;
+    }
+
+    .hero-sub {
+        font-size: 14px;
+        margin-top: 14px;
+    }
+
+    #sitename a {
+        font-size: 1.6rem;
+    }
+
+    .amenum {
+        margin: 0 -14px 16px;
+        padding: 0 4px;
+    }
+
+    .amenum a {
+        padding: 13px 13px;
+        font-size: 14px;
+        letter-spacing: 0.02em;
+    }
+
+    #content .post {
+        margin-bottom: 16px;
+    }
+
+    #content .post .title {
+        padding: 18px 16px 10px;
+        font-size: 18px;
+    }
+
+    #content .post .title a,
+    #content .post .title a:hover {
+        font-size: 18px;
+    }
+
+    #content .post .content {
+        padding: 0 16px 4px;
+        font-size: 15px;
+    }
+
+    .post_meta {
+        margin: 8px 16px 0;
+        padding: 10px 0 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        font-size: 12px;
+    }
+
+    #comm {
+        margin: 12px 16px 0;
+    }
+
+    .image-container {
+        width: 112px;
+        height: 76px;
+        margin: 4px 12px 8px 0;
+    }
+
+    #page_bar {
+        padding: 0 0 12px;
+        margin-bottom: 16px;
+    }
+
+    #page_bar a,
+    #page_bar .pagination-active {
+        min-width: 30px;
+        height: 30px;
+        padding: 0 8px;
+        font-size: 12.5px;
+        margin: 0 5px 5px 0;
+    }
+
+    #page_bar .pagination-numbers {
+        gap: 0 !important;
+    }
+
+    .sidebox,
+    .about,
+    #ylink {
+        padding: 14px 16px;
+        font-size: 13.5px;
+    }
+
+    #footer {
+        padding: 20px 16px 24px;
+        font-size: 12px;
+    }
+
+    .date_list,
+    .tag_list {
+        float: none;
+        width: 100%;
+        padding-right: 0;
+    }
+}
