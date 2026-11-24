@@ -35,6 +35,20 @@
  * @copyright    2016-2026 Qiaoshuo 乔硕 (isherqiao)
  */
 
+/* 当前主题自带 404 模板时交给主题渲染，样式与站点保持一致；没有则用下面的兜底页 */
+$qs_theme_404 = rtrim(SITE_ROOT, '/\\') . '/files/theme/'
+    . (isset($GLOBALS['qs_config']['site_theme']) ? (string)$GLOBALS['qs_config']['site_theme'] : '') . '/404.php';
+if (isset($GLOBALS['qs_config']['site_theme']) && is_file($qs_theme_404)) {
+    /* qs_404() 在函数内 require 本文件，这里把模板依赖的全局变量导进来 */
+    foreach (array('qs_config', 'qs_links', 'qs_menu', 'qs_side_menu', 'qs_custom_menus', 'qs_page_num') as $qs_404_global) {
+        if (isset($GLOBALS[$qs_404_global])) {
+            ${$qs_404_global} = $GLOBALS[$qs_404_global];
+        }
+    }
+    require $qs_theme_404;
+    exit;
+}
+
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
 <html> 
 <head> 

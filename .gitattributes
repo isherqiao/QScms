@@ -3,5 +3,34 @@
 *.bat text eol=crlf
 
 # 入库但不随发行包发布：本 CMS 官网自用主题（git archive / 发行包排除）
-files/theme/Qsiscms/** export-ignore
-files/theme/Qsiscms/   export-ignore
+files/theme/Qsis_cms/** export-ignore
+files/theme/Qsis_cms/   export-ignore
+# 版权合规：含第三方 IP 形象/商标的主题，不入发行包（仓库内仍保留跟踪，仅供本地自用）
+files/theme/Qsis_conan/** export-ignore
+files/theme/Qsis_conan/   export-ignore
+files/theme/Qsis_conan_case/** export-ignore
+files/theme/Qsis_conan_case/   export-ignore
+files/theme/Qsis_gray/** export-ignore
+files/theme/Qsis_gray/   export-ignore
+files/theme/Qsis_purple/** export-ignore
+files/theme/Qsis_purple/   export-ignore
+files/theme/Qsis_phantom/** export-ignore
+files/theme/Qsis_phantom/   export-ignore
+files/theme/Qsis_gundam/** export-ignore
+files/theme/Qsis_gundam/   export-ignore
+files/theme/Qsis_zaku/** export-ignore
+files/theme/Qsis_zaku/   export-ignore
+files/theme/Qsis_unicorn/** export-ignore
+files/theme/Qsis_unicorn/   export-ignore
+files/theme/Qsis_rei/** export-ignore
+files/theme/Qsis_rei/   export-ignore
+files/theme/Qsis_naruto/** export-ignore
+files/theme/Qsis_naruto/   export-ignore
+files/theme/Qsis_labubu/** export-ignore
+files/theme/Qsis_labubu/   export-ignore
+files/theme/Qsis_black/** export-ignore
+files/theme/Qsis_black/   export-ignore
+files/theme/Qsis_eva/** export-ignore
+files/theme/Qsis_eva/   export-ignore
+files/theme/cnblog/** export-ignore
+files/theme/cnblog/   export-ignore
