@@ -15,6 +15,11 @@
 /.clinerules
 # 杂项
 *.log
+# 编辑器/备份残留，不入库
+*.bak
+*.bak_*
+# 运行期偏移量残留
+/admin/push_offset.txt
 # 临时目录
 /tv/
 

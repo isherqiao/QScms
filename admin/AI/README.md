@@ -62,11 +62,10 @@ Authorization: Bearer QsisAI-xxxx
 curl -X POST "http://127.0.0.1:90/admin/AI/publish.php" \
   -H "Content-Type: application/json" \
   -H "X-QSIS-AI-KEY: QsisAI-xxxx" \
-  -d '{"action":"update","id":"1nte3i","author":"qiaoshuo"}'
+  -d '{"action":"update","id":"1nte3i","author":"<作者登录名>"}'
 ```
 
-> 关于作者：文章记录里存的是**登录名**，前台显示时由 `qs_the_user()` 用 `confp.php` 的 `$sp_config_users[登录名]['displayname']` 映射成显示名。所以接口只认登录名——写显示名会成为一条对不上账号的“幽灵作者”。
-> 本机现状：超级管理员登录名 `admin`，显示名「管理员」；额外账号在 `control/data/confp.php`（当前为空）。
+> 关于作者：文章记录里存的是**登录名**，前台显示时由 `qs_the_user()` 用 `confp.php` 的 `$sp_config_users[登录名]['displayname']` 映射成显示名。所以接口只认登录名——写显示名会成为一条对不上账号的“幽灵作者”。可选登录名以接口 422 报错列出的为准。
 
 ## 4. 调用示例
 
@@ -145,11 +144,11 @@ curl -X POST "http://127.0.0.1:90/admin/AI/publish.php" \
 - time     选填，HH:MM 或 HH:MM:SS，默认当前时间
 - id       新建时选填，自定义文章 id（只允许字母数字 - _），已存在返回 409；
            update 时必填，指要改的哪一篇，不存在返回 404
-- author   选填，但请显式传：**作者登录名**，本站为 qiaoshuo。不要传显示名「乔硕」，接口会 422。
+- author   选填，但请显式传：**作者登录名**（username）。不要传显示名，接口会 422。
 - can_comment 选填，1（默认允许评论）/ 0
 
 【update 的语义】只改你传的那几项，没传的保持原样。比如只想改作者：
-curl -X POST ".../admin/AI/publish.php" -H "X-QSIS-AI-KEY: <密钥>" -H "Content-Type: application/json" -d '{"action":"update","id":"文章id","author":"qiaoshuo"}'
+curl -X POST ".../admin/AI/publish.php" -H "X-QSIS-AI-KEY: <密钥>" -H "Content-Type: application/json" -d '{"action":"update","id":"文章id","author":"<作者登录名>"}'
 
 【返回】成功 code=200，msg 为「文章已写入」或「文章已更新」，data 里有 id / state / title / author / date / time / tags / url（url 是前台文章地址）。
 失败同时给 HTTP 状态码：400 请求体空；401 密钥错；403 接口未开或密钥未生成；404 要改的文章不存在；409 id 冲突；422 字段/格式/屏蔽词问题；500 写盘失败。
@@ -158,11 +157,11 @@ curl -X POST ".../admin/AI/publish.php" -H "X-QSIS-AI-KEY: <密钥>" -H "Content
 curl -X POST "http://127.0.0.1:90/admin/AI/publish.php" \
   -H "Content-Type: application/json" \
   -H "X-QSIS-AI-KEY: QsisAI-xxxx" \
-  -d '{"title":"标题","summary":"一句话摘要","content":"<p>正文</p>","tags":["标签一","标签二"],"author":"qiaoshuo","state":"publish"}'
+  -d '{"title":"标题","summary":"一句话摘要","content":"<p>正文</p>","tags":["标签一","标签二"],"author":"<作者登录名>","state":"publish"}'
 
 【要求】
 1. 只传上面这些字段，不要自造字段。
-2. author 一律写登录名 qiaoshuo（本站可选值以接口 422 报错里列出的为准）。
+2. author 一律写登录名（本站可选值以接口 422 报错里列出的为准）。
 3. 成功后在回复里给出返回的 url；失败时把 code 和 msg 原样报出来，不要自行猜测原因。
 4. 新建时不要重复提交同一篇：若返回 200 后又重试，会产生多篇文章（带相同 id 会 409）。
 5. 改稿一律走 action=update + id，不要另起一篇新文章再留下一篇旧的。

@@ -22,18 +22,6 @@
  * along with QScms. If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * QsCms 项目文件
- *
- * @Project      QsCms
- * @Author       Qiaoshuo 乔硕 (isher，isherqiao) <qiaoshuo@gmail.com>
- * @Site         https://qsis.cn
- * @File         publish.php
- * @CreatedTime  12/11/26 10:00:00
- * @LastEditTime 12/11/26 21:30:00
- * @Description  AI publish endpoint: accepts title / summary / content / tags from an external agent and writes them into the file-based post store, mirroring admin/post-edit.php without touching it. Supports action=update to overwrite an existing post by id.
- * @copyright    2016-2026 Qiaoshuo 乔硕 (isherqiao)
- */
 /*
  * ============================================================================
  *  接口契约（给调用方 / AI 看的说明，只对本机文件可见，HTTP 访问只会执行、不会输出源码）
