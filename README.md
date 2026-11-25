@@ -2,7 +2,7 @@
 
 **Multilingual CMS · Refined over 10 years**
 
-QScms (formerly QsisCMS) is a lightweight, open-source content management system that stores everything in files instead of a database. Articles, pages, menus, ads and site settings live in plain, human-readable PHP data files — copy the whole directory and you have migrated the site. One codebase has been refined for ten years; it ships with 18 front-end themes and 31 language packs for both the admin and the public UI, so a multilingual site works out of the box.
+QScms (formerly QsisCMS) is a lightweight, open-source content management system that stores everything in files instead of a database. Articles, pages, menus, ads and site settings live in plain, human-readable PHP data files — copy the whole directory and you have migrated the site. One codebase has been refined for ten years; it ships with 16 front-end themes and 31 language packs for both the admin and the public UI, so a multilingual site works out of the box.
 
 - Official site: https://cms.qsis.cn
 - Author: Qiao Shuo (isher / isherqiao) <qiaoshuo@gmail.com>
@@ -18,7 +18,7 @@ QScms (formerly QsisCMS) is a lightweight, open-source content management system
 | Content | Articles, pages, categories/tags, draft & published states; Markdown import/export |
 | Sites | Single site, multi-site (one install serving several domains), multi-site static generation |
 | Static | Built-in SSG: renders the whole site to plain HTML for CDN / object storage / GitHub Pages; the origin can stay edit-only |
-| Themes | 18 front-end themes, one-click switching; theme source editable in the browser |
+| Themes | 16 front-end themes, one-click switching; theme source editable in the browser |
 | Plugins | 13 bundled plugins (captcha, dark mode, copy bar / control bar, theme colors, redirect, ...), toggleable in admin |
 | Operations | Ad slots, links, guestbook, polls, image library & image host, payment gateway |
 | Compliance | Cookie consent, footer info, privacy policy as separate settings |
