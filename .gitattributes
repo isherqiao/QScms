@@ -2,39 +2,72 @@
 *.sh  text eol=lf
 *.bat text eol=crlf
 
-# 入库但不随发行包发布：本 CMS 官网自用主题（git archive / 发行包排除）
+# ============================================================================
+# 主题发行排除清单（git archive / 发行包不打包；仓库内仍保留跟踪，仅供本地自用）
+# 说明：以下主题要么是官网自用，要么含第三方 IP / 动漫 / 影视 / 潮玩形象或商标，
+#       公开发行存在版权风险，故用 export-ignore 排除。新增排除主题时在此登记原因。
+# ============================================================================
+
+# ---- 一、官网自用主题（非版权原因，仅不随发行包对外发布）----
+# 本 CMS 官网自用主题
 files/theme/Qsis_cms/** export-ignore
 files/theme/Qsis_cms/   export-ignore
-# 版权合规：含第三方 IP 形象/商标的主题，不入发行包（仓库内仍保留跟踪，仅供本地自用）
+
+# ---- 二、第三方 IP / 动漫影视形象主题（版权风险，不入发行包）----
+
+# 柯南系列：江户川柯南
 files/theme/Qsis_conan/** export-ignore
 files/theme/Qsis_conan/   export-ignore
+# 柯南系列：柯南案件 / 报纸场景
 files/theme/Qsis_conan_case/** export-ignore
 files/theme/Qsis_conan_case/   export-ignore
+# 柯南系列：柯南头像（极简灰版）
 files/theme/Qsis_gray/** export-ignore
 files/theme/Qsis_gray/   export-ignore
+# 柯南系列：柯南头像（极简紫版）
 files/theme/Qsis_purple/** export-ignore
 files/theme/Qsis_purple/   export-ignore
+# 柯南系列：怪盗基德（白礼服高礼帽）
 files/theme/Qsis_phantom/** export-ignore
 files/theme/Qsis_phantom/   export-ignore
-files/theme/Qsis_gundam/** export-ignore
-files/theme/Qsis_gundam/   export-ignore
-files/theme/Qsis_zaku/** export-ignore
-files/theme/Qsis_zaku/   export-ignore
-files/theme/Qsis_unicorn/** export-ignore
-files/theme/Qsis_unicorn/   export-ignore
-files/theme/Qsis_rei/** export-ignore
-files/theme/Qsis_rei/   export-ignore
-files/theme/Qsis_naruto/** export-ignore
-files/theme/Qsis_naruto/   export-ignore
-files/theme/Qsis_labubu/** export-ignore
-files/theme/Qsis_labubu/   export-ignore
-files/theme/Qsis_black/** export-ignore
-files/theme/Qsis_black/   export-ignore
-files/theme/Qsis_eva/** export-ignore
-files/theme/Qsis_eva/   export-ignore
-files/theme/cnblog/** export-ignore
-files/theme/cnblog/   export-ignore
+# 柯南系列：侦探题材（红领结 + 放大镜）
 files/theme/Qsis_detective/** export-ignore
 files/theme/Qsis_detective/   export-ignore
+
+# 高达系列：高达本体
+files/theme/Qsis_gundam/** export-ignore
+files/theme/Qsis_gundam/   export-ignore
+# 高达系列：扎古
+files/theme/Qsis_zaku/** export-ignore
+files/theme/Qsis_zaku/   export-ignore
+# 高达系列：独角兽高达
+files/theme/Qsis_unicorn/** export-ignore
+files/theme/Qsis_unicorn/   export-ignore
+
+# EVA 新世纪福音战士：绫波丽
+files/theme/Qsis_rei/** export-ignore
+files/theme/Qsis_rei/   export-ignore
+# EVA 新世纪福音战士：机体 / 题材
+files/theme/Qsis_eva/** export-ignore
+files/theme/Qsis_eva/   export-ignore
+
+# 火影忍者
+files/theme/Qsis_naruto/** export-ignore
+files/theme/Qsis_naruto/   export-ignore
+
+# LABUBU 潮玩形象
+files/theme/Qsis_labubu/** export-ignore
+files/theme/Qsis_labubu/   export-ignore
+
+# 美剧《HEROES》海报（日食光环 + HEROES 字样）
+files/theme/Qsis_black/** export-ignore
+files/theme/Qsis_black/   export-ignore
+
+# 樱桃小丸子
 files/theme/Qsis_maruko/** export-ignore
 files/theme/Qsis_maruko/   export-ignore
+
+# ---- 三、仿站界面风格（模仿既有站点 UI，不对外发布）----
+# 仿博客园界面风格
+files/theme/cnblog/** export-ignore
+files/theme/cnblog/   export-ignore
